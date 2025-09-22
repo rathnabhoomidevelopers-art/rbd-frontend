@@ -416,5 +416,5 @@ footer .map-container .maps{
 /* Remove any inline margin-lefts that were pushing titles */
 .element-service-guarantee .card-body .fw-bold.fs-5{
   margin-left:0 !important;
-  text-align:center;
+  text-align:center !important;
 }
