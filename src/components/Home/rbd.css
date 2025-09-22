@@ -393,3 +393,28 @@ footer .map-container .maps{
     max-width: 100%;
   }
 }
+/* Guarantee cards: center icons + titles on all breakpoints */
+.element-service-guarantee .card-header{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  margin-bottom:8px;           /* small breathing room below icon */
+  height:auto;                 /* let it size naturally */
+}
+.element-service-guarantee .card-header img{
+  display:block;
+  margin:0 auto;               /* hard center the image itself */
+}
+
+.element-service-guarantee .card-body{
+  display:flex;
+  flex-direction:column;
+  align-items:center;          /* center all text block elements */
+  text-align:center;           /* and center the text */
+}
+
+/* Remove any inline margin-lefts that were pushing titles */
+.element-service-guarantee .card-body .fw-bold.fs-5{
+  margin-left:0 !important;
+  text-align:center !important;
+}

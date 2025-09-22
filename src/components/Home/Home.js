@@ -152,7 +152,7 @@ export function HomePage() {
       return;
     }
     if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
-      setFormMessage("Enter a valid Indian mobile number (10 digits starting with 6/7/8/9, optional +91 or 0).");
+      setFormMessage("Enter a valid mobile number");
       return;
     }
 
@@ -694,7 +694,7 @@ export function HomePage() {
                 />
               </div>
               <div className="card-body">
-                <span className="fw-bold fs-5" style={{ marginLeft: "20px" }}>
+                <span className="fw-bold fs-5">
                   Communication Guarantee
                 </span>
                 <br />
@@ -721,7 +721,7 @@ export function HomePage() {
                 />
               </div>
               <div className="card-body">
-                <span className="fw-bold fs-5" style={{ marginLeft: "70px" }}>
+                <span className="fw-bold fs-5">
                   Register Now
                 </span>
                 <br />
@@ -749,7 +749,7 @@ export function HomePage() {
                 />
               </div>
               <div className="card-body">
-                <span className="fw-bold fs-5" style={{ marginLeft: "30px" }}>
+                <span className="fw-bold fs-5">
                   Cancellation Guarantee
                 </span>
                 <br />
@@ -776,7 +776,7 @@ export function HomePage() {
                 />
               </div>
               <div className="card-body">
-                <span className="fw-bold fs-5" style={{ marginLeft: "70px" }}>
+                <span className="fw-bold fs-5">
                   Timely delivery
                 </span>
                 <br />
@@ -802,7 +802,7 @@ export function HomePage() {
                 />
               </div>
               <div className="card-body">
-                <span className="fw-bold fs-5" style={{ marginLeft: "70px" }}>
+                <span className="fw-bold fs-5">
                   24/7 Support
                 </span>
                 <br />
