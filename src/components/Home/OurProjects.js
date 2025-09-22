@@ -529,7 +529,7 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
       return;
     }
     if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
-      setFormError("Enter a valid Indian mobile number (10 digits starting with 6/7/8/9, optional +91 or 0).");
+      setFormError("Enter a valid mobile number");
       return;
     }
 
