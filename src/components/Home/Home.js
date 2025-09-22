@@ -151,8 +151,8 @@ export function HomePage() {
       setFormMessage("Enter a valid email address.");
       return;
     }
-    if (!/^\+?\d{10,15}$/.test(phone)) {
-      setFormMessage("Enter a valid mobile number (10–15 digits, optional +).");
+    if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
+      setFormMessage("Enter a valid Indian mobile number (10 digits starting with 6/7/8/9, optional +91 or 0).");
       return;
     }
 
