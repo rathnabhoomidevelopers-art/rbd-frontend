@@ -397,9 +397,8 @@ footer .map-container .maps{
 .element-service-guarantee .card-header{
   display:flex;
   justify-content:center;
-  align-items:center;
-  margin-bottom:8px;           /* small breathing room below icon */
-  height:auto;                 /* let it size naturally */
+  align-items:center;       
+  height:auto;             
 }
 .element-service-guarantee .card-header img{
   display:block;
