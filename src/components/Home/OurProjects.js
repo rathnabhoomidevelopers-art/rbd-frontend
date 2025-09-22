@@ -28,32 +28,27 @@ const assetUrl = (pathFromPublic) => {
    - Else: same-origin (for prod).
 */
 const API_BASE = (() => {
-  const vite =
-    typeof import.meta !== "undefined" ? import.meta.env?.VITE_API_URL : undefined;
-  const cra =
-    typeof process !== "undefined" ? process.env?.REACT_APP_API_URL : undefined;
+  const pick = v => (typeof v === "string" && v.trim() ? v.trim().replace(/\/+$/g, "") : null);
+  const fromVite = typeof import.meta !== "undefined" ? import.meta.env?.VITE_API_URL : undefined;
+  const fromCRA  = typeof process !== "undefined" ? process.env?.REACT_APP_API_URL : undefined;
+  const env = pick(fromVite) || pick(fromCRA);
 
-  const pick = (v) => (typeof v === "string" && v.trim().length ? v.trim() : null);
-  const env = pick(vite) || pick(cra);
-  if (env) return env.replace(/\/+$/g, "");
+  if (env) return env; // prefer env when available
 
+  // Dev-only fallbacks
   if (typeof window !== "undefined" && window.location) {
     const { protocol, hostname, port } = window.location;
     const isDevPort = port === "3000" || port === "5173";
     if (isDevPort) {
-      // If you're on localhost, talk to 127.0.0.1; otherwise use the current LAN host.
-      const devHost =
-        hostname === "localhost" || hostname === "127.0.0.1"
-          ? "127.0.0.1"
-          : hostname;
+      const devHost = (hostname === "localhost" || hostname === "127.0.0.1") ? "127.0.0.1" : hostname;
       return `${protocol}//${devHost}:8080`;
     }
-    // same-origin in prod (behind reverse proxy)
-    return `${protocol}//${hostname}`;
   }
-  // Headless fallback (SSR/tests)
-  return "http://127.0.0.1:8080";
+
+  // Final guard for production (no same-origin fallback)
+  return "https://vercel-backend-three-rouge.vercel.app";
 })();
+
 
 /* POST helper with timeout */
 async function postJson(path, body, { timeoutMs = 12000 } = {}) {
