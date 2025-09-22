@@ -54,9 +54,11 @@ export default function SiteFooter() {
         <Link to="/contactus" style={{ color: "white", textDecoration: "none" }}><span>Contact Us</span></Link>
       </div>
 
-      <div className="footer-divider-r" style={{ height: "250px" }}>
-        <span style={{ fontSize: "22px", fontWeight: "bold" }}>Follow us</span>
-        <span style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+      {/* FOLLOW US */}
+      <div className="footer-divider-r">
+        <span className="footer-title">Follow us</span>
+
+        <div className="footer-socials">
           <a
             href="https://www.facebook.com/profile.php?id=61576906319237"
             target="_blank"
@@ -64,10 +66,9 @@ export default function SiteFooter() {
             aria-label="Facebook"
             title="Facebook"
           >
-            <span className="bi bi-facebook text-white" aria-hidden="true"></span>
+            <span className="bi bi-facebook" aria-hidden="true"></span>
           </a>
-        </span>
-        <span style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 6 }}>
+
           <a
             href="https://www.instagram.com/rathnabhoomidevelopers/"
             target="_blank"
@@ -75,8 +76,9 @@ export default function SiteFooter() {
             aria-label="Instagram"
             title="Instagram"
           >
-            <span className="bi bi-instagram text-white" aria-hidden="true"></span>
+            <span className="bi bi-instagram" aria-hidden="true"></span>
           </a>
+
           <a
             href="https://wa.me/919538752960"
             target="_blank"
@@ -84,13 +86,12 @@ export default function SiteFooter() {
             aria-label="WhatsApp"
             title="WhatsApp"
           >
-            <span className="bi bi-whatsapp text-white" aria-hidden="true"></span>
+            <span className="bi bi-whatsapp" aria-hidden="true"></span>
           </a>
-        </span>
+        </div>
 
-        <span style={{ marginTop: 10, display: "inline-block" }}>Privacy Policy</span>
-      </div>
-
+        <a href="/privacy" className="footer-privacy">Privacy Policy</a>
+    </div>
       <div className="map-container">
         <iframe
           className="maps"

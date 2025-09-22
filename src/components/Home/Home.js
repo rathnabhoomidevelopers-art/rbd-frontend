@@ -7,7 +7,6 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import RealEstate from "./RealEstate";
 import { Link } from "react-router-dom";
-
 /* === URL HELPERS (dev-aware) === */
 
 /* API base:
@@ -15,6 +14,7 @@ import { Link } from "react-router-dom";
    - Else: in dev (ports 3000/5173) point to http://127.0.0.1:8080.
    - Else: same-origin (for prod behind a reverse proxy).
 */
+
 const API_BASE = (() => {
   const pick = v => (typeof v === "string" && v.trim() ? v.trim().replace(/\/+$/g, "") : null);
   const fromVite = typeof import.meta !== "undefined" ? import.meta.env?.VITE_API_URL : undefined;
@@ -455,7 +455,7 @@ export function HomePage() {
         <Reveal>
           <motion.div
             className="service-card card1"
-            style={{ width: 400 }}
+
             variants={variants.fadeUpItem}
             whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
@@ -485,7 +485,7 @@ export function HomePage() {
         <Reveal>
           <motion.div
             className="service-card card2"
-            style={{ width: 400 }}
+          
             variants={variants.fadeUpItem}
             whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
@@ -515,7 +515,7 @@ export function HomePage() {
         <Reveal>
           <motion.div
             className="service-card card3"
-            style={{ width: 400 }}
+            
             variants={variants.fadeUpItem}
             whileHover={{ y: -6 }}
             whileTap={{ scale: 0.98 }}
