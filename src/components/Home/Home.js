@@ -445,7 +445,7 @@ export function HomePage() {
 
       {/* Services grid */}
       <motion.div
-        className="services d-flex justify-content-center"
+        className="services"
         variants={variants.fadeUpContainer}
         initial="hidden"
         whileInView="show"

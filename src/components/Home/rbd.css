@@ -46,7 +46,7 @@ header { position:fixed; inset:0 0 auto 0; width:100%; height:70px; background:#
 
 .projects{
   text-align:center; margin-top:50px; font-family:arial; font-size:20px; font-weight:900;
-  background-color:rgba(245,245,245,0.514); padding:20px 20px 50px;max-width: 1200px; margin-inline: auto;
+  background-color:rgba(245,245,245,0.514); padding:20px 20px 50px;
 }
 .powercity{
   display: grid;
@@ -365,8 +365,31 @@ footer .map-container .maps{
 .footer-privacy:hover{ opacity:1; text-decoration:underline; }
 /* SERVICES GRID — responsiveness */
 @media (max-width: 992px){
-  .services{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .services { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
-@media (max-width: 576px){
-  .services{ grid-template-columns: 1fr; }
+@media (max-width: 768px){
+  .services { grid-template-columns: 1fr !important; }}
+
+/* Desktop/Laptop (≥992px): keep the map in the 4th column */
+@media (min-width: 992px){
+  footer .map-container{
+    grid-column: auto;   /* no spanning; stay in its column */
+    align-self: start;   /* avoid growing taller than needed */
+    justify-content: flex-start; /* no extra centering needed */
+  }
+  footer .map-container .maps{
+    max-width: 100%;     /* fill the column only */
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Phones/Tablets (<992px): map should span full width under the columns */
+@media (max-width: 991.98px){
+  footer .map-container{
+    grid-column: 1 / -1; /* full-width row on small screens */
+    justify-content: center;
+  }
+  footer .map-container .maps{
+    max-width: 100%;
+  }
 }
