@@ -127,10 +127,11 @@ export default function ContactUs({
       setFormMessage("Enter a valid email address.");
       return;
     }
-    if (!/^\d{10}$/.test(phone)) {
-      setFormMessage("Enter a valid 10-digit mobile number.");
+    if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
+      setFormMessage("Enter a valid mobile number");
       return;
     }
+
 
     try {
       setIsSubmitting(true);
