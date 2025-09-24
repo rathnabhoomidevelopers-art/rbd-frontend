@@ -735,8 +735,8 @@ function LeadCaptureModal({ open, onClose }) {
         firstName: name,
         emailTxt: email,
         phone,
-        message,
-        source: "modal",
+        message: message.slice(0, 100),
+        source: "home",
       });
       setMsg("✅ Thanks! We’ll reach out soon.");
       setTimeout(onClose, 1200);
@@ -790,7 +790,10 @@ function LeadCaptureModal({ open, onClose }) {
             </div>
             <div>
               <Label htmlFor="lead_message">Message</Label>
-              <Textarea id="lead_message" rows={3} value={formData.message} onChange={set("message")} placeholder="I’m interested in Northern Lights…" />
+              <Textarea id="lead_message" rows={3} value={formData.message} onChange={set("message")} placeholder="I’m interested in Northern Lights…" maxLength={100}/>
+              <div className="text-xs text-gray-500 text-right">
+                {formData.message.length}/100
+              </div>
             </div>
 
             {msg && (
