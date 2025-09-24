@@ -79,11 +79,32 @@ const floatRight = {
   hidden: { opacity: 0, x: 40 },
   show: { opacity: 1, x: 0, transition: { duration: 0.8, delay: 0.6 } },
 };
+// === API base resolver (same logic as HomePage) ===
+const API_BASE = (() => {
+  const pick = v => (typeof v === "string" && v.trim() ? v.trim().replace(/\/+$/g, "") : null);
+  const fromVite = typeof import.meta !== "undefined" ? import.meta.env?.VITE_API_URL : undefined;
+  const fromCRA  = typeof process !== "undefined" ? process.env?.REACT_APP_API_URL : undefined;
+  const env = pick(fromVite) || pick(fromCRA);
+  if (env) return env;
+
+  // Dev fallback: if frontend runs on 3000/5173, point to local API
+  if (typeof window !== "undefined" && window.location) {
+    const { protocol, hostname, port } = window.location;
+    const isDevPort = port === "3000" || port === "5173";
+    if (isDevPort) {
+      const devHost = (hostname === "localhost" || hostname === "127.0.0.1") ? "127.0.0.1" : hostname;
+      return `${protocol}//${devHost}:8080`;
+    }
+  }
+
+  // Production default
+  return "https://vercel-backend-three-rouge.vercel.app";
+})();
 
 export default function ContactUs({
 
   onSubmit,
-  apiBase = import.meta?.env?.VITE_API_URL || "http://localhost:8080",
+  apiBase = API_BASE,
 }) {
   const [formMessage, setFormMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);

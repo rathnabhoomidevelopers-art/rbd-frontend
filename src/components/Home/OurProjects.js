@@ -529,7 +529,7 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
       return;
     }
     if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
-      setFormError("Enter a valid8484 mobile number");
+      setFormError("Enter a valid mobile number");
       return;
     }
 
@@ -702,11 +702,136 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
   );
 }
 
+function LeadCaptureModal({ open, onClose }) {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    emailTxt: "",
+    phone: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [msg, setMsg] = useState("");
+
+  if (!open) return null;
+
+  const set = (k) => (e) => setFormData((p) => ({ ...p, [k]: e.target.value }));
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const name = formData.firstName.trim();
+    const email = formData.emailTxt.trim();
+    const phone = formData.phone.replace(/[^\d+]/g, "");
+    const message = formData.message.trim();
+
+    if (!/^[A-Za-z\s]{5,}$/.test(name)) return setMsg("Full name: min 5 letters.");
+    if (!/^[a-zA-Z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,}$/.test(email))
+      return setMsg("Enter a valid email.");
+    if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone)) return setMsg("Enter a valid mobile number.");
+
+    try {
+      setIsSubmitting(true);
+      setMsg("");
+      await postJson("/api/contact", {
+        firstName: name,
+        emailTxt: email,
+        phone,
+        message,
+        source: "modal",
+      });
+      setMsg("✅ Thanks! We’ll reach out soon.");
+      setTimeout(onClose, 1200);
+    } catch (err) {
+      setMsg(err?.message || "❌ Failed to submit. Try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const onBackdrop = (e) => {
+    if (e.target.dataset.backdrop === "1") onClose();
+  };
+
+  return (
+    <div
+      data-backdrop="1"
+      onClick={onBackdrop}
+      className="fixed inset-0 z-[9999] bg-black/50 backdrop-blur-sm flex items-center justify-center p-3"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Get project details"
+    >
+      <Card className="w-full max-w-md shadow-2xl">
+        <CardHeader className="pb-2">
+          <div className="flex items-start justify-between">
+            <CardTitle className="text-2xl">Get Project Details</CardTitle>
+            <button
+              onClick={onClose}
+              className="h-10 w-10 -mr-2 -mt-2 rounded-xl hover:bg-gray-100"
+              aria-label="Close"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+          <p className="text-gray-600 mt-1">Share your details and we’ll contact you.</p>
+        </CardHeader>
+        <CardContent className="pt-0">
+          <form onSubmit={handleSubmit} noValidate className="space-y-4">
+            <div>
+              <Label htmlFor="lead_name">Full Name *</Label>
+              <Input id="lead_name" value={formData.firstName} onChange={set("firstName")} autoComplete="name" required />
+            </div>
+            <div>
+              <Label htmlFor="lead_email">Email *</Label>
+              <Input id="lead_email" type="email" value={formData.emailTxt} onChange={set("emailTxt")} autoComplete="email" required />
+            </div>
+            <div>
+              <Label htmlFor="lead_phone">Phone *</Label>
+              <Input id="lead_phone" value={formData.phone} onChange={set("phone")} inputMode="numeric" autoComplete="tel" required />
+            </div>
+            <div>
+              <Label htmlFor="lead_message">Message</Label>
+              <Textarea id="lead_message" rows={3} value={formData.message} onChange={set("message")} placeholder="I’m interested in Northern Lights…" />
+            </div>
+
+            {msg && (
+              <div className={`text-sm mt-1 ${msg.startsWith("✅") ? "text-green-700" : "text-red-700"}`}>
+                {msg}
+              </div>
+            )}
+
+            <div className="flex gap-3 pt-2">
+              <Button type="button" variant="outline" className="flex-1" onClick={onClose} disabled={isSubmitting}>
+                Cancel
+              </Button>
+              <Button type="submit" className="flex-1" disabled={isSubmitting}>
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </Button>
+            </div>
+          </form>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+
 /* Page Wrapper */
 export default function OurProjects() {
   const [selectedPlot, setSelectedPlot] = useState(null);
   const [showRegistrationForm, setShowRegistrationForm] = useState(false);
   const plotsRef = useRef(null);
+  const [showLeadModal, setShowLeadModal] = useState(false);
+
+useEffect(() => {
+  // only once per session
+  if (sessionStorage.getItem("leadModalShown") === "1") return;
+  const t = setTimeout(() => {
+    setShowLeadModal(true);
+    sessionStorage.setItem("leadModalShown", "1");
+  }, 5000);
+  return () => clearTimeout(t);
+}, []);
+
 
   const handlePlotSelect = (plot) => {
     setSelectedPlot(plot);
@@ -752,6 +877,12 @@ export default function OurProjects() {
           onSuccess={handleRegistrationSuccess}
         />
       )}
+      {showLeadModal && (
+      <LeadCaptureModal
+        open={showLeadModal}
+        onClose={() => setShowLeadModal(false)}
+      />
+    )}
 
       <SiteFooter />
     </div>
