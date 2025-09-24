@@ -133,10 +133,13 @@ export default function ContactUs({
 
     const name = e.target.firstName.value.trim();
     const email = e.target.emailTxt.value.trim();
-    const phone = e.target.phone.value.replace(/[^\d]/g, "");
+    const rawPhone   = e.target.phone.value.trim();
+    const onlyDigits = rawPhone.replace(/\D/g, "");
+    const last10     = onlyDigits.slice(-10);
+    const phone = onlyDigits.length > 10 ? `+${onlyDigits}` : `+91${last10}`;
     const message = e.target.message.value.trim();
 
-    if (!name || !email || !phone || !message) {
+    if (!name || !email || !rawPhone || !message) {
       setFormMessage("Please fill in all fields.");
       return;
     }
@@ -148,7 +151,7 @@ export default function ContactUs({
       setFormMessage("Enter a valid email address.");
       return;
     }
-    if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
+    if (!/^[6-9]\d{9}$/.test(last10)) {
       setFormMessage("Enter a valid mobile number");
       return;
     }
