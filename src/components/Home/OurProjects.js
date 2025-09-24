@@ -529,7 +529,7 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
       return;
     }
     if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
-      setFormError("Enter a valid mobile number");
+      setFormError("Enter a valid8484 mobile number");
       return;
     }
 
