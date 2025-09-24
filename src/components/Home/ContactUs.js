@@ -131,9 +131,7 @@ export default function ContactUs({
       setFormMessage("Enter a valid mobile number");
       return;
     }
-
-
-    try {
+   try {
       setIsSubmitting(true);
       if (typeof onSubmit === "function") {
         const data = await onSubmit({
