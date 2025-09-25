@@ -418,3 +418,129 @@ footer .map-container .maps{
   margin-left:0 !important;
   text-align:center !important;
 }
+/* ------------------------------ */
+/* Scoped blog typography (modal) */
+/* ------------------------------ */
+.blog-article{
+  width:100%;
+  max-width: 980px;
+  margin: 0 auto;
+  line-height: 1.8;
+  color: #111;
+}
+
+/* Override the inline 1000px width used inside article HTML */
+.blog-article > div[style*="width:1000px"]{
+  width: 100% !important;
+  max-width: 980px;
+  margin: 0 auto !important;
+}
+
+/* Headings inside article */
+.blog-article h1,
+.blog-article h2,
+.blog-article h3{
+  color:#0f172a; /* slate-900 vibe */
+  line-height:1.25;
+  margin: 0.6em 0 0.4em;
+}
+.blog-article h1{ font-size: clamp(1.6rem, 2.6vw, 2.25rem); font-weight: 800; }
+.blog-article h2{ font-size: clamp(1.3rem, 2.2vw, 1.75rem); font-weight: 700; }
+.blog-article h3{ font-size: clamp(1.15rem, 2vw, 1.35rem); font-weight: 700; }
+
+/* Paragraphs */
+.blog-article p,
+.blog-article .blog-p{
+  margin: 0 0 0.9em;
+  font-size: clamp(0.98rem, 1.2vw, 1.05rem);
+  color:#111827; /* gray-900 */
+}
+
+/* Lists – re-enable bullets that the global rule disables */
+.blog-article ul{
+  list-style: disc !important;
+  margin: 0.4em 0 1em 1.25rem !important;
+  padding-left: 0.25rem;
+  font-size: clamp(0.96rem, 1.2vw, 1.02rem);
+}
+.blog-article ol{
+  list-style: decimal !important;
+  margin: 0.4em 0 1em 1.25rem !important;
+  padding-left: 0.25rem;
+  font-size: clamp(0.96rem, 1.2vw, 1.02rem);
+}
+.blog-article li{ margin: 0.25em 0; }
+
+/* Tables inside articles */
+.blog-article table{
+  width:100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: clamp(0.92rem, 1.1vw, 0.98rem);
+}
+.blog-article th,
+.blog-article td{
+  border: 1px solid #e5e7eb; /* gray-200 */
+  padding: 10px;
+  text-align: left;
+}
+.blog-article thead th{
+  background:#f9fafb; /* gray-50 */
+  font-weight: 600;
+}
+
+/* Images */
+.blog-article img{
+  display:block;
+  max-width:100%;
+  height:auto;
+  border-radius: 8px;
+  margin: 12px 0;
+}
+
+/* Links */
+.blog-article a{
+  color:#b91c1c; /* red-700 */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* Code blocks (if any) */
+.blog-article pre{
+  background:#0f172a;
+  color:#f8fafc;
+  padding:14px;
+  border-radius:10px;
+  overflow:auto;
+}
+
+/* Make wide content scroll instead of overflowing on phones */
+.blog-article > *{
+  min-width: 0;
+}
+.blog-article .table-wrap{
+  overflow-x:auto;
+}
+.blog-article .table-wrap > table{
+  min-width: 640px;
+}
+
+/* Modal container tweaks for small heights */
+@media (max-height: 740px){
+  .reg-modal__scroll, .blog-article { max-height: 84svh; }
+}
+
+/* Fine-tune typography on narrow screens */
+@media (max-width: 640px){
+  .blog-article{
+    padding-inline: 6px;
+    line-height: 1.72;
+  }
+  .blog-article h1{ font-size: 1.55rem; }
+  .blog-article h2{ font-size: 1.3rem; }
+  .blog-article h3{ font-size: 1.12rem; }
+  .blog-article ul,
+  .blog-article ol{
+    margin-left: 1rem !important;
+  }
+}
