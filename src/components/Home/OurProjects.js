@@ -825,15 +825,13 @@ export default function OurProjects() {
   const plotsRef = useRef(null);
   const [showLeadModal, setShowLeadModal] = useState(false);
 
-useEffect(() => {
-  // only once per session
-  if (sessionStorage.getItem("leadModalShown") === "1") return;
-  const t = setTimeout(() => {
-    setShowLeadModal(true);
-    sessionStorage.setItem("leadModalShown", "1");
-  }, 5000);
-  return () => clearTimeout(t);
-}, []);
+const shownRef = useRef(false);
+  useEffect(() => {
+    if (shownRef.current) return; // already scheduled this mount
+    const t = setTimeout(() => setShowLeadModal(true), 3000);
+    shownRef.current = true;
+    return () => clearTimeout(t);
+  }, []);
 
 
   const handlePlotSelect = (plot) => {
