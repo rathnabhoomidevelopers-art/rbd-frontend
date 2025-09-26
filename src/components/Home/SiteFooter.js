@@ -60,7 +60,7 @@ export default function SiteFooter() {
 
         <div className="footer-socials">
           <a
-            href="https://www.facebook.com/profile.php?id=61576906319237"
+            href="https://www.facebook.com/profile.php?id=61578680982913"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Facebook"
@@ -70,7 +70,7 @@ export default function SiteFooter() {
           </a>
 
           <a
-            href="https://www.instagram.com/rathnabhoomidevelopers/"
+            href="https://www.instagram.com/rathnabhoomidevelopers01/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
