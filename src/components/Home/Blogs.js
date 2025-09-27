@@ -143,7 +143,7 @@ function Blogs() {
   <div>A peaceful farmhouse escape is no longer a dream—it’s one step away.</div>
   <h3>Contact</h3>
   <ul>
-    <li>Visit: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Visit: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Call: +91-9538752960</li>
   </ul>
@@ -309,7 +309,7 @@ function Blogs() {
   </ul>
   <h3>Contact</h3>
   <ul>
-    <li>Visit: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Visit: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Call: +91-9538752960</li>
   </ul>
@@ -440,7 +440,7 @@ function Blogs() {
   </ul>
   <h3>Contact</h3>
   <ul>
-    <li>Visit: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Visit: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Call: +91-9538752960</li>
   </ul>
@@ -557,7 +557,7 @@ function Blogs() {
   <h3>Have Land in or Around Bengaluru?</h3>
   <p>Let us help you unlock its full potential—without selling it.</p>
   <ul>
-    <li>Visit: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Visit: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Call: +91-9538752960</li>
   </ul>
@@ -652,7 +652,7 @@ function Blogs() {
   </ul>
   <h3>Ready to Own Your Piece of Green?</h3>
   <ul>
-    <li>Visit: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Visit: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Call: +91-9538752960</li>
   </ul>
@@ -742,7 +742,7 @@ function Blogs() {
   </ul>
   <h2>Ready to Start?</h2>
   <ul>
-    <li>Website: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Website: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:info@rathnabhoomidevelopers.com">info@rathnabhoomidevelopers.com</a></li>
     <li>Phone: +91-XXXXXXXXXX</li>
   </ul>
@@ -852,7 +852,7 @@ function Blogs() {
   </ul>
   <h2>Contact</h2>
   <ul>
-    <li>Website: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Website: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Phone: +91-9538752960</li>
   </ul>
@@ -948,7 +948,7 @@ function Blogs() {
   <p>Rathna Bhoomi Developers offers transparent, compliant farmland projects near Bengaluru.</p>
   <h3>Contact Rathna Bhoomi Developers</h3>
   <ul>
-    <li>Website: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Website: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Phone: +91-538752960</li>
   </ul>
@@ -1013,7 +1013,7 @@ function Blogs() {
   </ul>
   <h2>Contact</h2>
   <ul>
-    <li>Website: <a href="https://www.rathnabhoomidevelopers.com" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.com</a></li>
+    <li>Website: <a href="https://www.rathnabhoomidevelopers.in" target="_blank" rel="noopener noreferrer">www.rathnabhoomidevelopers.in</a></li>
     <li>Email: <a href="mailto:contact@rathnabhoomidevelopers.com">contact@rathnabhoomidevelopers.com</a></li>
     <li>Phone: +91-9538752960</li>
   </ul>
