@@ -58,8 +58,10 @@ export function OurServices() {
         <div className="sub-service2">What We Do</div>
       </div>
 
+      {/* Row 1: 1) Home Construction  2) Ready-to-Register Plots  3) Farm Land Sales */}
       <motion.div className="services" variants={variants.fadeUpContainer} {...ivProps}>
 
+        {/* 1) Home Construction */}
         <motion.div
           className="service-card card1"
           style={{ height: "100%", overflow: "hidden" }}
@@ -72,8 +74,8 @@ export function OurServices() {
           <div className="card-media">
             <motion.img
               className="media-img"
-              src={assetUrl("images/ourservicesapartments.png")}
-              alt="Apartment Sales"
+              src={assetUrl("images/homeconstruction.jpg")}
+              alt="Home Construction"
               loading="lazy"
               decoding="async"
               whileHover={{ scale: 1.08 }}
@@ -81,39 +83,14 @@ export function OurServices() {
             />
           </div>
           <div className="card-content">
-            <div className="card-title fw-bold fs-5">Apartment Sales (Flats)</div>
+            <div className="card-title fw-bold fs-5">Home Construction</div>
             <span className="accent-bar" aria-hidden="true" />
           </div>
         </motion.div>
 
+        {/* 2) Ready-to-Register Plots */}
         <motion.div
           className="service-card card2"
-          style={{ height: "100%", overflow: "hidden" }}
-          variants={variants.fadeUpItem}
-          whileHover={{ y: -6 }}
-          whileTap={{ scale: 0.98 }}
-          initial="rest"
-          animate="rest"
-        >
-          <div className="card-media">
-            <motion.img
-              className="media-img"
-              src={assetUrl("images/ourservicesfarmland.png")}
-              alt="Farm Land Sales"
-              loading="lazy"
-              decoding="async"
-              whileHover={{ scale: 1.08 }}
-              {...imgIvProps}
-            />
-          </div>
-          <div className="card-content">
-            <div className="card-title fw-bold fs-5">Farm Land Sales</div>
-            <span className="accent-bar" aria-hidden="true" />
-          </div>
-        </motion.div>
-
-        <motion.div
-          className="service-card card3"
           style={{ height: "100%", overflow: "hidden" }}
           variants={variants.fadeUpItem}
           whileHover={{ y: -6 }}
@@ -137,10 +114,39 @@ export function OurServices() {
             <span className="accent-bar" aria-hidden="true" />
           </div>
         </motion.div>
+
+        {/* 3) Farm Land Sales */}
+        <motion.div
+          className="service-card card3"
+          style={{ height: "100%", overflow: "hidden" }}
+          variants={variants.fadeUpItem}
+          whileHover={{ y: -6 }}
+          whileTap={{ scale: 0.98 }}
+          initial="rest"
+          animate="rest"
+        >
+          <div className="card-media">
+            <motion.img
+              className="media-img"
+              src={assetUrl("images/ourservicesfarmland.png")}
+              alt="Farm Land Sales"
+              loading="lazy"
+              decoding="async"
+              whileHover={{ scale: 1.08 }}
+              {...imgIvProps}
+            />
+          </div>
+          <div className="card-content">
+            <div className="card-title fw-bold fs-5">Farm Land Sales</div>
+            <span className="accent-bar" aria-hidden="true" />
+          </div>
+        </motion.div>
       </motion.div>
 
+      {/* Row 2: 4) Plantation Ideas  5) Apartment Construction  6) Apartment Sales (Flats) */}
       <motion.div className="services" variants={variants.fadeUpContainer} {...ivProps}>
 
+        {/* 4) Plantation Ideas */}
         <motion.div
           className="service-card card1"
           style={{ height: "100%", overflow: "hidden" }}
@@ -167,6 +173,7 @@ export function OurServices() {
           </div>
         </motion.div>
 
+        {/* 5) Apartment Construction */}
         <motion.div
           className="service-card card2"
           style={{ height: "100%", overflow: "hidden" }}
@@ -193,6 +200,7 @@ export function OurServices() {
           </div>
         </motion.div>
 
+        {/* 6) Apartment Sales (Flats) */}
         <motion.div
           className="service-card card3"
           style={{ height: "100%", overflow: "hidden" }}
@@ -205,8 +213,8 @@ export function OurServices() {
           <div className="card-media">
             <motion.img
               className="media-img"
-              src={assetUrl("images/homeconstruction.jpg")}
-              alt="Home Construction"
+              src={assetUrl("images/ourservicesapartments.png")}
+              alt="Apartment Sales"
               loading="lazy"
               decoding="async"
               whileHover={{ scale: 1.08 }}
@@ -214,12 +222,12 @@ export function OurServices() {
             />
           </div>
           <div className="card-content">
-            <div className="card-title fw-bold fs-5">Home Construction</div>
+            <div className="card-title fw-bold fs-5">Apartment Sales (Flats)</div>
             <span className="accent-bar" aria-hidden="true" />
           </div>
         </motion.div>
       </motion.div>
-      
+
       {/* whatsapp and call Stickers */}
       <div className="sticker p-3">
         <a href="https://wa.me/917483060728" target="_blank" rel="noopener noreferrer">
