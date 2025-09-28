@@ -544,3 +544,37 @@ footer .map-container .maps{
     margin-left: 1rem !important;
   }
 }
+/* Let grid children actually shrink so content wraps instead of overflowing */
+footer > * { min-width: 0; }
+
+/* Email line: allow wrapping next to the icon */
+.footer-email { 
+  color: #fff; 
+  text-decoration: none; 
+  display: block; 
+  margin-top: 8px; 
+}
+.footer-email-line{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;                /* key: let the text wrap to the next line */
+  word-break: break-word;         /* break long chunks sensibly */
+  overflow-wrap: anywhere;        /* ensure it wraps even for long emails */
+}
+
+/* Make sure the icons inherit your gold color consistently */
+.footer-email-line .bi-envelope,
+footer a[aria-label^="Call us"] .bi-telephone-fill,
+footer address .bi-geo-alt {
+  color: goldenrod !important;
+}
+
+/* Extra safety: allow wrapping in contact column generally */
+.footer-contact, 
+.footer-contact a, 
+.footer-contact address {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.footer-divider-lr, .footer-divider-r { padding-inline:16px; }

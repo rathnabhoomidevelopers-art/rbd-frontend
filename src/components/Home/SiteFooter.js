@@ -25,18 +25,19 @@ export default function SiteFooter() {
 
         <a
           href="mailto:contact@rathnabhoomidevelopers.com"
-          style={{ color: "white", textDecoration: "none", display: "block", marginTop: 8 }}
+          className="footer-email"
           aria-label="Email contact at rathnabhoomidevelopers.com"
         >
-          <span style={{ display: "flex", gap: "10px" }}>
-            <i className="bi bi-envelope fs-4" style={{ color: "goldenrod" }} aria-hidden="true"></i>
+          <span className="footer-email-line">
+            <i className="bi bi-envelope fs-4" aria-hidden="true" />
             contact@rathnabhoomidevelopers.com
           </span>
         </a>
 
+
         <address style={{ marginTop: 8, fontStyle: "normal", color: "white" }}>
           <i className="bi bi-geo-alt fs-4" style={{ color: "goldenrod" }} aria-hidden="true"></i>{" "}
-          No.23, E-Block, 14th Main Rd, Sahakar Nagar, Bangalore
+          2nd Floor, No 23, E Block, Parindhi, 14A Dasarahalli Main Rd, Sahakar Nagar, Bengaluru, Karnataka 560092
         </address>
       </div>
 
