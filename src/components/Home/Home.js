@@ -292,38 +292,38 @@ style={{
   </Reveal>
 
   <Reveal>
-  <motion.div
-    className="media-card"
-    variants={variants.fadeUpItem}
-    whileHover={{ y: -8 }}
-    whileTap={{ scale: 0.98 }}
-  >
-    <div className="media-box media-box--video">
-      <motion.div
-        className="video-frame"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        whileHover={{ scale: 1.02 }}
-      >
-        <iframe
-          className="media-element"
-          src="https://www.youtube.com/embed/33tPvCPJZnw?start=7&rel=0&modestbranding=1"
-          title="Walkthrough & Highlights"
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        />
-      </motion.div>
-    </div>
+    <motion.div
+      className="media-card"
+      variants={variants.fadeUpItem}
+      whileHover={{ y: -8 }}
+      whileTap={{ scale: 0.98 }}
+    >
+      <div className="media-box media-box--video">
+        <motion.div
+          className="video-frame"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          whileHover={{ scale: 1.02 }}
+        >
+          <iframe
+            className="media-element"
+            src="https://www.youtube.com/embed/33tPvCPJZnw?start=7&rel=0&modestbranding=1"
+            title="Walkthrough & Highlights"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          />
+        </motion.div>
+      </div>
 
-    <div className="media-caption">Walkthrough & Highlights</div>
+      <div className="media-caption">Walkthrough & Highlights</div>
+    </motion.div>
+  </Reveal>
+
   </motion.div>
-</Reveal>
-
-</motion.div>
 </section>
 
 <Reveal variant="fadeIn">

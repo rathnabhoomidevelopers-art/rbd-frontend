@@ -2,5 +2,16 @@
   "rewrites": [
     { "source": "/api/(.*)", "destination": "https://rbd-backend.vercel.app/api/$1" },
     { "source": "/(.*)", "destination": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; frame-src https://www.youtube.com https://www.youtube-nocookie.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.youtube.com https://www.youtube-nocookie.com https://*.google.com https://*.gstatic.com https://*.googleapis.com https://*.doubleclick.net https://www.googletagmanager.com https://www.google-analytics.com blob:; worker-src blob:; img-src 'self' data: https://i.ytimg.com https://*.ggpht.com; media-src https://*.googlevideo.com blob:; connect-src 'self' https://*.youtube.com https://*.googlevideo.com https://*.ytimg.com https://*.gstatic.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; object-src 'none'; base-uri 'self';"
+        }
+      ]
+    }
   ]
 }
