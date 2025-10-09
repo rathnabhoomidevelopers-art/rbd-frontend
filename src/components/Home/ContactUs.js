@@ -138,6 +138,7 @@ export default function ContactUs({
     const last10     = onlyDigits.slice(-10);
     const phone = onlyDigits.length > 10 ? `+${onlyDigits}` : `+91${last10}`;
     const message = e.target.message.value.trim();
+    const accepted = e.target.accept?.checked;
 
     if (!name || !email || !rawPhone || !message) {
       setFormMessage("Please fill in all fields.");
@@ -155,6 +156,10 @@ export default function ContactUs({
       setFormMessage("Enter a valid mobile number");
       return;
     }
+    if (!accepted) {
+      setFormMessage("Select the Terms & Conditions field.");
+      return;
+    }
    try {
       setIsSubmitting(true);
       if (typeof onSubmit === "function") {
@@ -170,7 +175,7 @@ export default function ContactUs({
         await postJson({
           base: apiBase,
           path: "/api/contact",
-          body: { firstName: name, emailTxt: email, phone, message, source: "contactus" },
+          body: { firstName: name, emailTxt: email, phone, message, source: "contactus",accepted: true,channels: ["rcs", "whatsapp", "call"] },
         });
       }
       setFormMessage("✅ Thank you, we’ll reach out soon!");
@@ -545,7 +550,20 @@ export default function ContactUs({
                       >
                         {formMessage}
                       </p>
-
+                        {/* Terms & Conditions */}
+                        <div className=" fs-6 d-flex mt-4">
+                          <label>
+                            <input
+                              type="checkbox"
+                              name="accept"
+                              required
+                              style={{width: '22px',
+                                      height: '22px',}}
+                              className="mt-1 ms-3"
+                            />
+                          </label>
+                          <span>&nbsp;&nbsp;I agree to receive updates via RCS, &nbsp;&nbsp;WhatsApp, and calls.</span>
+                        </div>
                       <div className="mt-3 d-flex justify-content-center">
                         <motion.button
                           type="submit"
