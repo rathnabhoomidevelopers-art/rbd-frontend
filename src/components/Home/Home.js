@@ -7,13 +7,6 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import RealEstate from "./RealEstate";
 import { Link } from "react-router-dom";
-/* === URL HELPERS (dev-aware) === */
-
-/* API base:
-- If Vite/CRA env is set, use it.
-- Else: in dev (ports 3000/5173) point to http://127.0.0.1:8080.
-- Else: same-origin (for prod behind a reverse proxy).
-*/
 
 const API_BASE = (() => {
 const pick = v => (typeof v === "string" && v.trim() ? v.trim().replace(/\/+$/g, "") : null);
@@ -138,6 +131,7 @@ const name = e.target.firstName.value.trim();
 const email = e.target.emailTxt.value.trim();
 const phone = e.target.phone.value.trim();
 const message = e.target.message.value.trim();
+const accepted = e.target.accept?.checked;
 
 if (!name || !email || !phone || !message) {
 setFormMessage("Please fill in all fields.");
@@ -155,6 +149,10 @@ if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone.replace(/[^\d+]/g, ""))) {
 setFormMessage("Enter a valid mobile number");
 return;
 }
+if (!accepted) {
+  setFormMessage("Select the Terms & Conditions field.");
+  return;
+}
 
 try {
 setIsSubmitting(true);
@@ -164,6 +162,8 @@ emailTxt: email,
 phone,
 message,
 source: "home",
+accepted: true,
+channels: ["rcs", "whatsapp", "call"],
 });
 setFormMessage("✅ Thank you, we’ll reach out soon!");
 e.target.reset();
@@ -225,6 +225,22 @@ style={{
     </div>
 
     <p aria-live="polite" style={{ color: formMessage.startsWith("✅") ? "green" : "red" }}>{formMessage}</p>
+
+  {/* Terms & Conditions */}
+<div className=" fs-6 d-flex">
+  <label>
+    <input
+      type="checkbox"
+      name="accept"
+      required
+      style={{width: '22px',
+              height: '22px',}}
+      className="mt-1 ms-3"
+    />
+  </label>
+  <span>&nbsp;&nbsp;I agree to receive updates via RCS, &nbsp;&nbsp;WhatsApp, and calls.</span>
+</div>
+
 
     <div className="form-submit mt-4">
       <motion.button

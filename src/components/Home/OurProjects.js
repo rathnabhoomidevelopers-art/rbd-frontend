@@ -515,6 +515,7 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
     const email = formData.email.trim();
     const phone = formData.phone.trim();
     const message = formData.message.trim();
+    const accepted = e.target.accept?.checked;
 
     if (!name || !email || !phone || !message) {
       setFormError("Please fill in all fields.");
@@ -541,6 +542,11 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
       setFormError("Please select a plot again.");
       return;
     }
+    if (!accepted) {
+      setFormError("Please accept the Terms & Conditions.");
+      e.target.accept?.focus();
+      return;
+    }
 
     setIsSubmitting(true);
     try {
@@ -552,6 +558,8 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
         budget_range: formData.budget_range || null,
         inquiry_type: formData.inquiry_type || "more_info",
         message: message || null,
+        accepted: true,
+        channels: ["rcs", "whatsapp", "call"]
       });
       setIsSuccess(true);
       setTimeout(() => {
@@ -682,6 +690,21 @@ function RegistrationForm({ selectedPlot, onClose, onSuccess }) {
                   {formError}
                 </div>
               )}
+    
+               {/* Terms & Conditions */}
+              <div className=" fs-6 d-flex">
+                <label>
+                  <input
+                    type="checkbox"
+                    name="accept"
+                    required
+                    style={{width: '22px',
+                            height: '22px',}}
+                    className="mt-1 ms-3"
+                  />
+                </label>
+                <span>&nbsp;&nbsp;I agree to receive updates via RCS, &nbsp;&nbsp;WhatsApp, and calls.</span>
+              </div>
 
               <div
                 className="sticky bottom-0 left-0 right-0 z-20 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-t flex gap-3 p-3"
@@ -722,11 +745,13 @@ function LeadCaptureModal({ open, onClose }) {
     const email = formData.emailTxt.trim();
     const phone = formData.phone.replace(/[^\d+]/g, "");
     const message = formData.message.trim();
+    const accepted = e.target.accept?.checked;
 
     if (!/^[A-Za-z\s]{5,}$/.test(name)) return setMsg("Full name: min 5 letters.");
     if (!/^[a-zA-Z0-9._%+-]+@([A-Za-z0-9-]+\.)+[A-Za-z]{2,}$/.test(email))
       return setMsg("Enter a valid email.");
     if (!/^(?:\+91|0)?[6-9]\d{9}$/.test(phone)) return setMsg("Enter a valid mobile number.");
+    if (!accepted) return setMsg("Please accept the Terms & Conditions.");
 
     try {
       setIsSubmitting(true);
@@ -737,6 +762,8 @@ function LeadCaptureModal({ open, onClose }) {
         phone,
         message: message.slice(0, 100),
         source: "home",
+        accepted: true,
+        channels: ["rcs", "whatsapp", "call"],
       });
       setMsg("✅ Thanks! We’ll reach out soon.");
       setTimeout(onClose, 1200);
@@ -801,6 +828,21 @@ function LeadCaptureModal({ open, onClose }) {
                 {msg}
               </div>
             )}
+
+             {/* Terms & Conditions */}
+            <div className=" fs-6 d-flex">
+              <label>
+                <input
+                  type="checkbox"
+                  name="accept"
+                  required
+                  style={{width: '22px',
+                          height: '22px',}}
+                  className="mt-1 ms-3"
+                />
+              </label>
+              <span>&nbsp;&nbsp;I agree to receive updates via RCS, &nbsp;&nbsp;WhatsApp, and calls.</span>
+            </div>
 
             <div className="flex gap-3 pt-2">
               <Button type="button" variant="outline" className="flex-1" onClick={onClose} disabled={isSubmitting}>
