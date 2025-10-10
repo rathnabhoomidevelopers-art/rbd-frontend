@@ -53,6 +53,8 @@ export default function SiteFooter() {
         <Link to="/ourservices" style={{ color: "white", textDecoration: "none" }}><span>Services</span></Link>
         <Link to="/blogs" style={{ color: "white", textDecoration: "none" }}><span>Blogs</span></Link>
         <Link to="/contactus" style={{ color: "white", textDecoration: "none" }}><span>Contact Us</span></Link>
+        <Link to="/termsconditions" style={{ color: "white", textDecoration: "none" }}><span>Terms & Conditions</span></Link>
+        <Link to="/privacypolicy" style={{ color: "white", textDecoration: "none" }}><span>Privacy Policy</span></Link>
       </div>
 
       {/* FOLLOW US */}

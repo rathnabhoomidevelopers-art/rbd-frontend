@@ -10,6 +10,9 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import "./index.css";
 import ScrollToTop from "./components/Home/scrollToTop";
 import OurProjects from "./components/Home/OurProjects";
+import { TermsCondition } from "./components/Home/TermsConditions";
+import { PrivacyPolicy } from "./components/Home/PrivacyPolicy";
+;
 
 function App() {
   return (
@@ -24,6 +27,8 @@ function App() {
         <Route path="/ourprojects" element={<OurProjects />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/termsconditions" element={<TermsCondition/>}/>
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
       </Routes>
     </Router>
   );
