@@ -100,6 +100,8 @@ export default function SiteHeader() {
         <Link to="/ourservices" onClick={() => setNavOpen(false)}>Services</Link>
         <Link to="/blogs" onClick={() => setNavOpen(false)}>Blogs</Link>
         <Link to="/contactus" onClick={() => setNavOpen(false)}>Contact Us</Link>
+        <Link to="/termsconditions" onClick={() => setNavOpen(false)}>Terms & Conditions</Link>
+        <Link to="/privacypolicy" onClick={() => setNavOpen(false)}>Privacy Policy</Link>
       </nav>
     </motion.header>
   );
