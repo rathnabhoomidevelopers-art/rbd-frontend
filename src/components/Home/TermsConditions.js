@@ -1,4 +1,3 @@
-import { MotionConfig, motion } from "framer-motion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 

@@ -25,7 +25,7 @@ header { position:fixed; inset:0 0 auto 0; width:100%; height:70px; background:#
 .brand-logo{ height:46px; width:auto; display:block; }
 .main-nav.desktop-only{ margin-left:auto !important; display:none; gap: clamp(12px, 2.5vw, 36px); }
 @media (min-width: 992px){ .main-nav.desktop-only{ display:flex; } }
-.main-nav span{ padding-left: 10px; font-size:16px; margin-right:20px; color:#000; }
+.main-nav span{ padding-left: 20px; font-size:16px; margin-right:40px; color:#000; }
 .main-nav a{ color:#000; text-decoration:none; }
 .main-nav span:hover{ color: rgb(218,110,16); }
 
