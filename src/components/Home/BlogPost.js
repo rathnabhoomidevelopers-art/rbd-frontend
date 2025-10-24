@@ -4,6 +4,7 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 // we exported ARTICLES from Blogs.js earlier
 import { ARTICLES } from "./Blogs";
+import SetPageTitle from "./SetPageTitle";
 
 const formatDate = (iso) =>
   new Date(iso).toLocaleDateString(undefined, {
@@ -23,6 +24,7 @@ export default function BlogPost() {
   if (!post) {
     return (
       <>
+      <SetPageTitle title={post ? post.title : "Post not found"} />
         <SiteHeader />
         <main className="min-h-screen flex flex-col items-center justify-center text-center">
           <h1 className="text-3xl font-bold mb-4">Post not found</h1>

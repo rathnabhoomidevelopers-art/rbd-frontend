@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import { Link } from "react-router-dom";
+import SetPageTitle from "./SetPageTitle";
 
 const assetUrl = (pathFromPublic) =>
   (typeof import.meta !== "undefined" && import.meta.env?.BASE_URL)
@@ -1089,6 +1090,7 @@ function Blogs() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <SetPageTitle title="Blogs" />
       <SiteHeader />
 
       {/* Hero / Featured slider */}
