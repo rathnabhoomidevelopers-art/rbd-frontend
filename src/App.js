@@ -13,6 +13,7 @@ import OurProjects from "./components/Home/OurProjects";
 import { TermsCondition } from "./components/Home/TermsConditions";
 import { PrivacyPolicy } from "./components/Home/PrivacyPolicy";
 import BlogPost from "./components/Home/BlogPost";
+import SetPageTitle from "./components/Home/SetPageTitle";
 function App() {
   return (
     <Router>
@@ -29,6 +30,7 @@ function App() {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/termsconditions" element={<TermsCondition/>}/>
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
+        <Route path="/setpagetitle" element={<SetPageTitle/>}/>
       </Routes>
     </Router>
   );

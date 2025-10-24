@@ -9,6 +9,7 @@ import {
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import AboutAccordion from "./AboutAccordion";
+import SetPageTitle from "./SetPageTitle";
 
 const assetUrl = (pathFromPublic) =>
   (typeof import.meta !== "undefined" && import.meta.env?.BASE_URL)
@@ -100,7 +101,7 @@ export default function AboutUs() {
         .parallax-bg { background-attachment: fixed; background-size: cover; background-position:center; }
         @media (max-width: 768px) { .parallax-bg { background-attachment: scroll; } }
       `}</style>
-
+      <SetPageTitle title="About Us" />
       <SiteHeader />
 
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">

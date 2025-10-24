@@ -5,6 +5,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import { motion } from "framer-motion";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
+import SetPageTitle from "./SetPageTitle";
 
 const assetUrl = (pathFromPublic) =>
   (typeof import.meta !== "undefined" && import.meta.env?.BASE_URL)
@@ -51,6 +52,7 @@ export function OurServices() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SetPageTitle title="Services" />
       <SiteHeader />
 
       <div className="services2" id="service" style={{ marginTop: "150px" }}>

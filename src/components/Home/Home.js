@@ -7,6 +7,7 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import RealEstate from "./RealEstate";
 import { Link } from "react-router-dom";
+import SetPageTitle from "./SetPageTitle";
 
 const API_BASE = (() => {
 const pick = v => (typeof v === "string" && v.trim() ? v.trim().replace(/\/+$/g, "") : null);
@@ -176,6 +177,7 @@ setIsSubmitting(false);
 
 return (
 <div className="App home-page">
+ <SetPageTitle title="Home" />
 {/* Header */}
 <SiteHeader />
 

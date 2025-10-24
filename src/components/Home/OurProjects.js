@@ -11,6 +11,7 @@ import {
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import RealEstate from "./RealEstate";
+import SetPageTitle from "./SetPageTitle";
 
 /* === URL HELPERS (dev-aware) === */
 
@@ -888,6 +889,7 @@ const shownRef = useRef(false);
 
   return (
     <div className="min-h-screen bg-white">
+      <SetPageTitle title="Projects" />
       <SiteHeader />
 
       <div style={{ marginTop: "90px" }}>

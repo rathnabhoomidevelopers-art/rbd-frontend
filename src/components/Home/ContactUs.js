@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+import SetPageTitle from "./SetPageTitle";
 
 const joinUrl = (base, path) =>
   `${(base || "").replace(/\/+$/g, "")}${path.startsWith("/") ? "" : "/"}${path}`;
@@ -210,7 +211,7 @@ export default function ContactUs({
           }}
         />
       )}
-
+<SetPageTitle title="Contact Us" />
       <SiteHeader />
 
       <section
