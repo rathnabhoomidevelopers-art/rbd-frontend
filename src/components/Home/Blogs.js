@@ -1,3 +1,4 @@
+// Blogs.js
 import "./rbd.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -5,6 +6,7 @@ import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+import { Link } from "react-router-dom";
 
 const assetUrl = (pathFromPublic) =>
   (typeof import.meta !== "undefined" && import.meta.env?.BASE_URL)
@@ -14,51 +16,25 @@ const assetUrl = (pathFromPublic) =>
 const normalizeHero = (url) => (url?.startsWith("http") ? url : assetUrl(url || ""));
 
 // Helper to register articles cleanly
-function buildArticle({
-  title, author, date, hero, excerpt, readTime, category, html,
-}) {
-  return {
-    title, author, date, hero: normalizeHero(hero), excerpt, readTime, category, html,
-  };
+function buildArticle({ title, author, date, hero, excerpt, readTime, category, html }) {
+  return { title, author, date, hero: normalizeHero(hero), excerpt, readTime, category, html };
 }
 
-function Blogs() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [hoveredCard, setHoveredCard] = useState(null);
-  const [selectedPost, setSelectedPost] = useState(null);
+/* ===================== MOVE ARTICLES TO MODULE SCOPE ===================== */
+export const ARTICLES = {
+  // 1) Weekend Farmhouse
+  "the-rise-of-weekend-farmhouses-around-bangalore-investment-or-lifestyle": buildArticle({
+    title: "The Rise of Weekend Farmhouses Around Bangalore: Investment or Lifestyle?",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-15",
+    hero: "images/blogimage-1.png",
+    excerpt:
+      "Bengaluru’s professionals are eyeing farmland retreats. Is it lifestyle, investment, or both?",
+    readTime: "8–10 min read",
+    category: "Farmland",
+    html: `
+      <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  const formatDate = (iso) =>
-    new Date(iso).toLocaleDateString(undefined, {
-      month: "long",
-      day: "2-digit",
-      year: "numeric",
-    });
-  const openPost = (slug) => setSelectedPost(ARTICLES[slug] || null);
-  const closePost = () => setSelectedPost(null);
-
-  const supportsIO = useMemo(
-    () => typeof window !== "undefined" && "IntersectionObserver" in window,
-    []
-  );
-  const isTest =
-    typeof process !== "undefined" &&
-    process.env &&
-    process.env.NODE_ENV === "test";
-
-  // === INLINE ARTICLES (ALL CONTENT LIVES HERE) ===============================
-
-  const ARTICLES = {
-    // 1) Weekend Farmhouse
-    "rise-of-weekend-farmhouses-bangalore": buildArticle({
-      title: "The Rise of Weekend Farmhouses Around Bangalore: Investment or Lifestyle?",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-15",
-      hero: "images/blogimage-1.png",
-      excerpt: "Bengaluru’s professionals are eyeing farmland retreats. Is it lifestyle, investment, or both?",
-      readTime: "8–10 min read",
-      category: "Farmland",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
   <h1>The Rise of Weekend Farmhouses Around Bangalore: Investment or Lifestyle?</h1>
   <p>In recent years, Bengaluru residents have been looking beyond the city’s glass towers and traffic jams for something more peaceful, personal, and connected to nature. The result? A sharp rise in interest toward farmhouse plots near Bangalore, creating a perfect blend of lifestyle and long-term investment.</p>
   <p>Whether you’re looking for a weekend retreat, a green investment, or a peaceful place to unwind, weekend farmland trends suggest that now is the right time to act.</p>
@@ -152,20 +128,23 @@ function Blogs() {
   <div>If you’re someone who dreams of owning a piece of land… then <b>a farmhouse plot near Bangalore</b> is your answer.</div>
   <div>Whether you choose it for lifestyle or investment—<b>it’s a win either way.</b></div>
 </div>
-      `,
-    }),
 
-    // 2) Partner With RBD – Joint Development
-    "partner-with-rbd-joint-development": buildArticle({
-      title: "How to Partner With Rathna Bhoomi Developers for Joint Development Projects",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-12",
-      hero: "images/blogimage-2.png",
-      excerpt: "Turn your land into a high-value project—retain ownership, unlock growth with a clear JDA.",
-      readTime: "10–12 min read",
-      category: "Joint Development",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+    `, // keep your full HTML here
+  }),
+
+  // 2) Partner With RBD – Joint Development
+  "how-to-partner-with-rathna-bhoomi-developers-for-joint-development-projects": buildArticle({
+    title: "How to Partner With Rathna Bhoomi Developers for Joint Development Projects",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-12",
+    hero: "images/blogimage-2.png",
+    excerpt:
+      "Turn your land into a high-value project—retain ownership, unlock growth with a clear JDA.",
+    readTime: "10–12 min read",
+    category: "Joint Development",
+    html: `
+   <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>How to Partner With Rathna Bhoomi Developers for Joint Development Projects</h1>
   <p>
     Land in and around Bengaluru is one of the most valuable assets today. But if you’re a
@@ -321,20 +300,23 @@ function Blogs() {
     wealth-generating assets.</p>
   <p>Don’t just hold land. Let it grow with you.</p>
 </div>
-      `,
-    }),
 
-    // 3) Top 5 Farmland Locations
-    "top-5-farmland-locations-near-bengaluru": buildArticle({
-      title: "Top 5 Locations to Buy Farm Land Within 1–2 Hours of Bengaluru",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-10",
-      hero: "images/blogimage-3.png",
-      excerpt: "From Kanakapura to Devanahalli—discover where lifestyle meets appreciation.",
-      readTime: "9 min read",
-      category: "Guides",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+    `,
+  }),
+
+  // 3) Top 5 Farmland Locations
+  "top-5-locations-to-buy-farm-land-within-1-2-hours-of-bengaluru": buildArticle({
+    title: "Top 5 Locations to Buy Farm Land Within 1–2 Hours of Bengaluru",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-10",
+    hero: "images/blogimage-3.png",
+    excerpt:
+      "From Kanakapura to Devanahalli—discover where lifestyle meets appreciation.",
+    readTime: "9 min read",
+    category: "Guides",
+    html: `
+      <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>Top 5 Locations to Buy Farm Land Within 1–2 Hours of Bengaluru</h1>
   <p>
     As Bengaluru continues to grow and urbanize, a quiet revolution is taking place just outside
@@ -447,20 +429,22 @@ function Blogs() {
   <h2>Final Thoughts</h2>
   <p>The demand for farm plots near Bangalore is rising not only as a weekend trend but as a reliable real estate asset. These five locations balance access, nature, and growth.</p>
 </div>
-      `,
-    }),
 
-    // 4) Joint Development in Bengaluru – (full)
-    "joint-development-bengaluru-crores-without-selling": buildArticle({
-      title: "Joint Development in Bengaluru: How Landowners Can Unlock Crores Without Selling",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-08",
-      hero: "/images/blogimage-4.png",
-      excerpt: "Keep the land. Monetize the future—inside the landowner–builder model.",
-      readTime: "10–12 min read",
-      category: "Joint Development",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+    `,
+  }),
+
+  // 4) Joint Development in Bengaluru – (full)
+  "joint-development-in-bengaluru-how-landowners-can-unlock-crores-without-selling": buildArticle({
+    title: "Joint Development in Bengaluru: How Landowners Can Unlock Crores Without Selling",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-08",
+    hero: "/images/blogimage-4.png",
+    excerpt: "Keep the land. Monetize the future—inside the landowner–builder model.",
+    readTime: "10–12 min read",
+    category: "Joint Development",
+    html: `
+     <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>Joint Development in Bengaluru: How Landowners Can Unlock Crores Without Selling</h1>
   <p>In Bengaluru’s ever-evolving real estate market, one opportunity stands out for landowners:
     joint development. While many still think selling their land is the only way to profit, <b>joint
@@ -568,20 +552,23 @@ function Blogs() {
     unmatched long-term value.</p>
   <p><b>Don’t sell your land. Let it build your future.</b></p>
 </div>
-      `,
-    }),
 
-    // 5) Farmland Investment 2025 (first)
-    "farmland-investment-trend-2025": buildArticle({
-      title: "Why Farm Land Near Bengaluru Is the Best Investment Trend for 2025",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-05",
-      hero: "/images/blogimage-5.png",
-      excerpt: "Sustainability, connectivity, and demand are redefining returns around Bengaluru.",
-      readTime: "8–10 min read",
-      category: "Investing",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+    `,
+  }),
+
+  // 5) Farmland Investment 2025
+  "why-farm-land-near-bengaluru-is-the-best-investment-trend-for-2025": buildArticle({
+    title: "Why Farm Land Near Bengaluru Is the Best Investment Trend for 2025",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-05",
+    hero: "/images/blogimage-5.png",
+    excerpt:
+      "Sustainability, connectivity, and demand are redefining returns around Bengaluru.",
+    readTime: "8–10 min read",
+    category: "Investing",
+    html: `
+     <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>Why Farm Land Near Bengaluru Is the Best Investment Trend for 2025</h1>
   <p>In a real estate landscape filled with high-rise apartments, tech parks, and skyrocketing
     urban prices, one trend is standing tall—investing in farm land near Bengaluru.</p>
@@ -659,20 +646,22 @@ function Blogs() {
   <h2>Final Thoughts</h2>
   <p><b>2025 is the year to go green—smartly, profitably, and peacefully.</b></p>
 </div>
-      `,
-    }),
+    `,
+  }),
 
-    // 6) Channel Partner Opportunities
-    "channel-partner-opportunities-2025": buildArticle({
-      title: "Everything You Need to Know About Channel Partner Opportunities in Real Estate",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-03",
-      hero: "/images/blogimage-6.png",
-      excerpt: "Low investment, structured commissions—build a sales business with developers.",
-      readTime: "7–9 min read",
-      category: "Careers",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+  // 6) Channel Partner Opportunities
+  "everything-you-need-to-know-about-channel-partner-opportunities-in-real-estate": buildArticle({
+    title: "Everything You Need to Know About Channel Partner Opportunities in Real Estate",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-03",
+    hero: "/images/blogimage-6.png",
+    excerpt:
+      "Low investment, structured commissions—build a sales business with developers.",
+    readTime: "7–9 min read",
+    category: "Careers",
+    html: `
+      <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>Everything You Need to Know About Channel Partner Opportunities in Real Estate</h1>
   <p>The Indian real estate sector is not just about builders and brokers anymore. A new breed of
     professionals is rising fast—<b>real estate channel partners</b>. In Bengaluru, where the
@@ -751,20 +740,22 @@ function Blogs() {
     enter real estate without heavy capital or risk. If you’re ready to hustle and close deals, the
     rewards are big.</p>
 </div>
-      `,
-    }),
+    `,
+  }),
 
-    // 7) Gated Farmland Communities
-    "gated-farmland-communities-why-now": buildArticle({
-      title: "Why Investing in Farmland Gated Communities Near Bangalore Makes Sense Now",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-02",
-      hero: "/images/blogimage-7.png",
-      excerpt: "Managed, secure, and legal: the modern path to peaceful land ownership.",
-      readTime: "8–10 min read",
-      category: "Farmland",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+  // 7) Gated Farmland Communities
+  "why-investing-in-farmland-gated-communities-near-bangalore-makes-sense-now": buildArticle({
+    title: "Why Investing in Farmland Gated Communities Near Bangalore Makes Sense Now",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-02",
+    hero: "/images/blogimage-7.png",
+    excerpt:
+      "Managed, secure, and legal: the modern path to peaceful land ownership.",
+    readTime: "8–10 min read",
+    category: "Farmland",
+    html: `
+      <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>Why Investing in Farmland Gated Communities Near Bangalore Makes Sense Now</h1>
   <p>Over the last few years, a quiet revolution has been taking shape around Bengaluru’s outskirts:
     <b>gated farmland communities</b>—agricultural land ownership with urban comforts and long-term
@@ -861,20 +852,21 @@ function Blogs() {
     managed communities. In Bengaluru, it’s not a trend; it’s a movement—and the best time is
     <b>now</b>.</p>
 </div>
-      `,
-    }),
+    `,
+  }),
 
-    // 8) Legal Checklist Karnataka
-    "legal-checklist-agri-land-karnataka": buildArticle({
-      title: "Legal Checklist Before Buying Agricultural Land in Karnataka",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-01",
-      hero: "/images/blogimage-8.png",
-      excerpt: "RTC, EC, conversion, surveys—your end-to-end due-diligence guide.",
-      readTime: "10–12 min read",
-      category: "Legal",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+  // 8) Legal Checklist Karnataka
+  "legal-checklist-before-buying-agricultural-land-in-karnataka": buildArticle({
+    title: "Legal Checklist Before Buying Agricultural Land in Karnataka",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-01",
+    hero: "/images/blogimage-8.png",
+    excerpt: "RTC, EC, conversion, surveys—your end-to-end due-diligence guide.",
+    readTime: "10–12 min read",
+    category: "Legal",
+    html: `
+      <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>Legal Checklist Before Buying Agricultural Land in Karnataka</h1>
   <p>Buying a piece of agricultural land in Karnataka can be a smart investment—whether for
     farming, farmhouse development, weekend retreats, or simply for land appreciation. However,
@@ -953,20 +945,22 @@ function Blogs() {
     <li>Phone: +91-538752960</li>
   </ul>
 </div>
-      `,
-    }),
+    `,
+  }),
 
-    // 9) Channel Partners Earnings
-    "channel-partners-earnings-farm-plots": buildArticle({
-      title: "How Channel Partners Can Earn Big by Promoting Farm and Plot Sales",
-      author: "Rathna Bhoomi Team",
-      date: "2025-01-01",
-      hero: "/images/blogimage-9.png",
-      excerpt: "1%–5% commissions, ready marketing kits, and a booming plots market.",
-      readTime: "7–9 min read",
-      category: "Careers",
-      html: `
-<div style="width:1000px;margin:0 auto;line-height:1.7">
+  // 9) Channel Partners Earnings
+  "how-channel-partners-can-earn-big-by-promoting-farm-and-plot-sales": buildArticle({
+    title: "How Channel Partners Can Earn Big by Promoting Farm and Plot Sales",
+    author: "Rathna Bhoomi Team",
+    date: "2025-01-01",
+    hero: "/images/blogimage-9.png",
+    excerpt:
+      "1%–5% commissions, ready marketing kits, and a booming plots market.",
+    readTime: "7–9 min read",
+    category: "Careers",
+    html: `
+      <div style="max-width:100%;margin:0 auto;line-height:1.7">
+
   <h1>How Channel Partners Can Earn Big by Promoting Farm and Plot Sales</h1>
   <p>In India’s fast-growing real estate sector, you don’t have to own land to profit from it. Many
     individuals today earn substantial income as <b>real estate channel partners</b>—especially with
@@ -1021,46 +1015,66 @@ function Blogs() {
   <p>If you’re looking for a low-risk, high-reward opportunity, this is your moment. <b>Start
     promoting. Start earning. Start growing.</b></p>
 </div>
-      `,
-    }),
-  };
-  // === END ARTICLES ===========================================================
+
+    `,
+  }),
+
+  
+};
+/* =================== END MODULE-SCOPE ARTICLES =================== */
+
+function Blogs() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [hoveredCard, setHoveredCard] = useState(null);
+
+  const formatDate = (iso) =>
+    new Date(iso).toLocaleDateString(undefined, {
+      month: "long",
+      day: "2-digit",
+      year: "numeric",
+    });
+
+  const supportsIO = useMemo(
+    () => typeof window !== "undefined" && "IntersectionObserver" in window,
+    []
+  );
+  const isTest =
+    typeof process !== "undefined" && process.env && process.env.NODE_ENV === "test";
 
   const featuredSlugs = [
     "rise-of-weekend-farmhouses-bangalore",
     "top-5-farmland-locations-near-bengaluru",
     "joint-development-bengaluru-crores-without-selling",
-  ];
+  ].filter((s) => ARTICLES[s]);
+
   const featuredPosts = featuredSlugs.map((slug) => {
     const a = ARTICLES[slug];
-    return {
-      slug,
-      title: a.title,
-      excerpt: a.excerpt,
-      category: a.category,
-      readTime: a.readTime,
-    };
+    return { slug, title: a.title, excerpt: a.excerpt, category: a.category, readTime: a.readTime };
   });
 
-  // Fresh Reads: exclude featured and de-duplicate by title (case/trim)
   const blogPosts = (() => {
-    const entries = Object.entries(ARTICLES)
-      .filter(([slug]) => !featuredSlugs.includes(slug)); // remove repeats from grid
+    const entries = Object.entries(ARTICLES).filter(([slug]) => !featuredSlugs.includes(slug));
     const seen = new Set();
     const deduped = [];
     for (const [slug, a] of entries) {
       const key = (a.title || "").trim().toLowerCase();
       if (seen.has(key)) continue;
       seen.add(key);
-      deduped.push({ slug, title: a.title, excerpt: a.excerpt, date: a.date, author: a.author, hero: a.hero });
+      deduped.push({
+        slug,
+        title: a.title,
+        excerpt: a.excerpt,
+        date: a.date,
+        author: a.author,
+        hero: a.hero,
+      });
     }
-    // sort newest first (optional)
     deduped.sort((p, q) => new Date(q.date) - new Date(p.date));
     return deduped;
   })();
 
   useEffect(() => {
-    if (isTest) return;
+    if (isTest || featuredPosts.length === 0) return;
     const id = setInterval(() => {
       setCurrentIndex((p) => (p + 1) % featuredPosts.length);
     }, 5000);
@@ -1070,6 +1084,8 @@ function Blogs() {
   const iv = supportsIO
     ? { whileInView: { opacity: 1, y: 0 }, viewport: { once: true } }
     : { animate: { opacity: 1, y: 0 } };
+
+  const urlForPost = (slug) => `/blog/${slug}`;
 
   return (
     <div className="min-h-screen bg-stone-50">
@@ -1089,45 +1105,6 @@ function Blogs() {
               Clear, practical insights for buyers, sellers, investors, and landowners.
             </p>
           </motion.div>
-
-          <div className="relative h-96" aria-live="polite">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, x: 100 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -100 }}
-                transition={{ duration: 0.5 }}
-                className="absolute inset-0"
-              >
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 max-w-2xl mx-auto">
-                  <span className="bg-amber-500 text-white px-4 py-1 rounded-full text-sm font-medium">
-                    {featuredPosts[currentIndex].category}
-                  </span>
-                  <h2 className="text-3xl font-bold mt-4 mb-4">
-                    {featuredPosts[currentIndex].title}
-                  </h2>
-                  <p className="text-amber-100 mb-6 text-lg">
-                    {featuredPosts[currentIndex].excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-amber-200">
-                      {featuredPosts[currentIndex].readTime}
-                    </span>
-                    <motion.button
-                      className="bg-white text-amber-900 px-6 py-2 rounded-lg font-medium"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      onClick={() => openPost(featuredPosts[currentIndex].slug)}
-                      aria-label={`Read story: ${featuredPosts[currentIndex].title}`}
-                    >
-                      Read Story
-                    </motion.button>
-                  </div>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
         </div>
       </section>
 
@@ -1186,75 +1163,23 @@ function Blogs() {
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h3>
                   <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                  <motion.button
-                    className="text-rose-600 font-medium flex items-center"
-                    whileHover={{ x: 5 }}
-                    onClick={() => openPost(post.slug)}
-                    aria-label={`Read more: ${post.title}`}
-                  >
-                    Read More →
-                  </motion.button>
+
+                  <motion.div whileHover={{ x: 5 }}>
+                    <Link
+                      to={urlForPost(post.slug)}
+                      className="text-rose-600 font-medium flex items-center"
+                      aria-label={`Read more: ${post.title}`}
+                    >
+                      Read More →
+                    </Link>
+                  </motion.div>
+
                 </div>
               </motion.article>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Modal with FULL article (inlined HTML) */}
-      <AnimatePresence>
-        {selectedPost && (
-          <motion.div
-            className="fixed inset-0 bg-black/60 z-50"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closePost}
-          >
-            <motion.div
-              className="absolute left-1/2 top-0 -translate-x-1/2 w-[95%] max-w-5xl bg-white rounded-2xl shadow-2xl overflow-y-auto"
-              style={{ marginTop: "64px", maxHeight: "calc(100vh - 96px)" }}
-              initial={{ y: 40, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 40, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 120, damping: 18 }}
-              onClick={(e) => e.stopPropagation()}
-              role="dialog"
-              aria-modal="true"
-              aria-label={selectedPost.title}
-            >
-              {/* Top bar */}
-              <div className="d-flex justify-content-between align-items-center px-3 px-md-4 py-3 border-bottom">
-                <div className="small text-muted">
-                  {formatDate(selectedPost.date)} • {selectedPost.author}
-                </div>
-                <button
-                  className="btn btn-light rounded-circle"
-                  onClick={closePost}
-                  aria-label="Close"
-                  style={{ width: 40, height: 40 }}
-                >
-                  <i className="bi bi-x-lg" />
-                </button>
-              </div>
-
-              {/* Render the HTML of the chosen article */}
-                <div className="px-2 px-md-3 py-3 py-md-4">
-                  <div className="blog-article">
-                    <div dangerouslySetInnerHTML={{ __html: selectedPost.html }} />
-                    {/* Back button stays *inside* the article, so it renders at the very end */}
-                    <div className="mt-3 d-flex gap-2">
-                      <button className="btn btn-outline-secondary" onClick={closePost}>
-                        ← Back to all posts
-                      </button>
-                    </div>
-                  </div>
-                </div>
-
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
       {/* Stickers */}
       <div className="sticker p-3">
@@ -1266,7 +1191,7 @@ function Blogs() {
         <br />
         <a href="tel:+917483060728">
           <div className="contact-sticker bg-secondary p-2 text-white rounded rounded-circle">
-            <i className="bi bi-telephone"></i>
+          <i className="bi bi-telephone"></i>
           </div>
         </a>
       </div>
