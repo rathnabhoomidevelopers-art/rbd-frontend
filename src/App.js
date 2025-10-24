@@ -12,8 +12,7 @@ import ScrollToTop from "./components/Home/scrollToTop";
 import OurProjects from "./components/Home/OurProjects";
 import { TermsCondition } from "./components/Home/TermsConditions";
 import { PrivacyPolicy } from "./components/Home/PrivacyPolicy";
-;
-
+import BlogPost from "./components/Home/BlogPost";
 function App() {
   return (
     <Router>
@@ -26,6 +25,7 @@ function App() {
         <Route path="/ourservices" element={<OurServices />} />
         <Route path="/ourprojects" element={<OurProjects />} />
         <Route path="/blogs" element={<Blogs />} />
+         <Route path="/blog/:slug" element={<BlogPost />} />
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/termsconditions" element={<TermsCondition/>}/>
         <Route path="/privacypolicy" element={<PrivacyPolicy/>}/>
