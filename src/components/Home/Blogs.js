@@ -27,7 +27,7 @@ export const ARTICLES = {
   "the-rise-of-weekend-farmhouses-around-bangalore-investment-or-lifestyle": buildArticle({
     title: "The Rise of Weekend Farmhouses Around Bangalore: Investment or Lifestyle?",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-15",
+    date: "Jan 15, 2025",
     hero: "images/blogimage-1.png",
     excerpt:
       "Bengaluru’s professionals are eyeing farmland retreats. Is it lifestyle, investment, or both?",
@@ -36,7 +36,7 @@ export const ARTICLES = {
     html: `
       <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>The Rise of Weekend Farmhouses Around Bangalore: Investment or Lifestyle?</h1>
+  <h1>Realty Guide</h1>
   <p>In recent years, Bengaluru residents have been looking beyond the city’s glass towers and traffic jams for something more peaceful, personal, and connected to nature. The result? A sharp rise in interest toward farmhouse plots near Bangalore, creating a perfect blend of lifestyle and long-term investment.</p>
   <p>Whether you’re looking for a weekend retreat, a green investment, or a peaceful place to unwind, weekend farmland trends suggest that now is the right time to act.</p>
   <p>But the big question remains:<br/>Is this just a lifestyle trend—or a strong real estate investment opportunity?</p>
@@ -137,7 +137,7 @@ export const ARTICLES = {
   "how-to-partner-with-rathna-bhoomi-developers-for-joint-development-projects": buildArticle({
     title: "How to Partner With Rathna Bhoomi Developers for Joint Development Projects",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-12",
+    date: "Jan 12, 2025",
     hero: "images/blogimage-2.png",
     excerpt:
       "Turn your land into a high-value project—retain ownership, unlock growth with a clear JDA.",
@@ -146,7 +146,7 @@ export const ARTICLES = {
     html: `
    <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>How to Partner With Rathna Bhoomi Developers for Joint Development Projects</h1>
+  <h1>Realty Guide</h1>
   <p>
     Land in and around Bengaluru is one of the most valuable assets today. But if you’re a
     landowner wondering how to make the most of your property—without selling it off—joint
@@ -309,7 +309,7 @@ export const ARTICLES = {
   "top-5-locations-to-buy-farm-land-within-1-2-hours-of-bengaluru": buildArticle({
     title: "Top 5 Locations to Buy Farm Land Within 1–2 Hours of Bengaluru",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-10",
+    date: "Jan 10, 2025",
     hero: "images/blogimage-3.png",
     excerpt:
       "From Kanakapura to Devanahalli—discover where lifestyle meets appreciation.",
@@ -318,7 +318,7 @@ export const ARTICLES = {
     html: `
       <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>Top 5 Locations to Buy Farm Land Within 1–2 Hours of Bengaluru</h1>
+  <h1>Realty Guide</h1>
   <p>
     As Bengaluru continues to grow and urbanize, a quiet revolution is taking place just outside
     its borders—the rise of weekend farmland investment. With rising stress levels in the city
@@ -438,7 +438,7 @@ export const ARTICLES = {
   "joint-development-in-bengaluru-how-landowners-can-unlock-crores-without-selling": buildArticle({
     title: "Joint Development in Bengaluru: How Landowners Can Unlock Crores Without Selling",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-08",
+    date: "Jan 8, 2025",
     hero: "/images/blogimage-4.png",
     excerpt: "Keep the land. Monetize the future—inside the landowner–builder model.",
     readTime: "10–12 min read",
@@ -446,7 +446,7 @@ export const ARTICLES = {
     html: `
      <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>Joint Development in Bengaluru: How Landowners Can Unlock Crores Without Selling</h1>
+  <h1>Realty Guide</h1>
   <p>In Bengaluru’s ever-evolving real estate market, one opportunity stands out for landowners:
     joint development. While many still think selling their land is the only way to profit, <b>joint
     development plots in Bengaluru</b> offer a smarter, long-term, and more profitable alternative—
@@ -561,7 +561,7 @@ export const ARTICLES = {
   "why-farm-land-near-bengaluru-is-the-best-investment-trend-for-2025": buildArticle({
     title: "Why Farm Land Near Bengaluru Is the Best Investment Trend for 2025",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-05",
+    date: "Jan 5, 2025",
     hero: "/images/blogimage-5.png",
     excerpt:
       "Sustainability, connectivity, and demand are redefining returns around Bengaluru.",
@@ -570,7 +570,7 @@ export const ARTICLES = {
     html: `
      <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>Why Farm Land Near Bengaluru Is the Best Investment Trend for 2025</h1>
+  <h1>Realty Guide</h1>
   <p>In a real estate landscape filled with high-rise apartments, tech parks, and skyrocketing
     urban prices, one trend is standing tall—investing in farm land near Bengaluru.</p>
   <p>Once considered a niche or sentimental choice, agricultural land investment has now become a
@@ -654,7 +654,7 @@ export const ARTICLES = {
   "everything-you-need-to-know-about-channel-partner-opportunities-in-real-estate": buildArticle({
     title: "Everything You Need to Know About Channel Partner Opportunities in Real Estate",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-03",
+    date: "Jan 3rd, 2025",
     hero: "/images/blogimage-6.png",
     excerpt:
       "Low investment, structured commissions—build a sales business with developers.",
@@ -663,7 +663,7 @@ export const ARTICLES = {
     html: `
       <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>Everything You Need to Know About Channel Partner Opportunities in Real Estate</h1>
+  <h1>Realty Guide</h1>
   <p>The Indian real estate sector is not just about builders and brokers anymore. A new breed of
     professionals is rising fast—<b>real estate channel partners</b>. In Bengaluru, where the
     property market is constantly expanding, channel partners are playing a key role in connecting
@@ -748,7 +748,7 @@ export const ARTICLES = {
   "why-investing-in-farmland-gated-communities-near-bangalore-makes-sense-now": buildArticle({
     title: "Why Investing in Farmland Gated Communities Near Bangalore Makes Sense Now",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-02",
+    date: "Jan 2nd, 2025",
     hero: "/images/blogimage-7.png",
     excerpt:
       "Managed, secure, and legal: the modern path to peaceful land ownership.",
@@ -757,7 +757,7 @@ export const ARTICLES = {
     html: `
       <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>Why Investing in Farmland Gated Communities Near Bangalore Makes Sense Now</h1>
+  <h1>Realty Guide</h1>
   <p>Over the last few years, a quiet revolution has been taking shape around Bengaluru’s outskirts:
     <b>gated farmland communities</b>—agricultural land ownership with urban comforts and long-term
     investment potential.</p>
@@ -860,7 +860,7 @@ export const ARTICLES = {
   "legal-checklist-before-buying-agricultural-land-in-karnataka": buildArticle({
     title: "Legal Checklist Before Buying Agricultural Land in Karnataka",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-01",
+    date: "Jan 1st, 2025",
     hero: "/images/blogimage-8.png",
     excerpt: "RTC, EC, conversion, surveys—your end-to-end due-diligence guide.",
     readTime: "10–12 min read",
@@ -868,7 +868,7 @@ export const ARTICLES = {
     html: `
       <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>Legal Checklist Before Buying Agricultural Land in Karnataka</h1>
+  <h1>Realty Guide</h1>
   <p>Buying a piece of agricultural land in Karnataka can be a smart investment—whether for
     farming, farmhouse development, weekend retreats, or simply for land appreciation. However,
     farmland purchases come with a different set of legal requirements compared to residential
@@ -953,7 +953,7 @@ export const ARTICLES = {
   "how-channel-partners-can-earn-big-by-promoting-farm-and-plot-sales": buildArticle({
     title: "How Channel Partners Can Earn Big by Promoting Farm and Plot Sales",
     author: "Rathna Bhoomi Team",
-    date: "2025-01-01",
+    date: "Jan 1st, 2025",
     hero: "/images/blogimage-9.png",
     excerpt:
       "1%–5% commissions, ready marketing kits, and a booming plots market.",
@@ -962,7 +962,7 @@ export const ARTICLES = {
     html: `
       <div style="max-width:100%;margin:0 auto;line-height:1.7">
 
-  <h1>How Channel Partners Can Earn Big by Promoting Farm and Plot Sales</h1>
+  <h1>Realty Guide</h1>
   <p>In India’s fast-growing real estate sector, you don’t have to own land to profit from it. Many
     individuals today earn substantial income as <b>real estate channel partners</b>—especially with
     the demand for farm lands and residential plots near Bengaluru.</p>
@@ -1107,6 +1107,24 @@ function Blogs() {
               Clear, practical insights for buyers, sellers, investors, and landowners.
             </p>
           </motion.div>
+         <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="mb-16 flex justify-center"
+          >
+            <nav aria-label="breadcrumb">
+              <ol className="breadcrumb">
+                <li className="breadcrumb-item">
+                  <a href="/" className="hover:text-slate-300" style={{ color: "white" }}>Home</a>
+                </li>&nbsp;&nbsp;<span>&gt;&gt;</span>&nbsp;&nbsp;
+                <li className="breadcrumb-item">
+                  <a href="/blogs" className="hover:text-slate-300" style={{ color: "white" }}>Blog</a>
+                </li>
+              </ol>
+            </nav>
+          </motion.div>
+
         </div>
       </section>
 
@@ -1136,7 +1154,11 @@ function Blogs() {
                 onHoverStart={() => setHoveredCard(index)}
                 onHoverEnd={() => setHoveredCard(null)}
               >
-                <div className="relative overflow-hidden">
+                <Link
+                  to={urlForPost(post.slug)}
+                  className="relative overflow-hidden block cursor-pointer group rounded-t-xl"
+                  aria-label={`Open: ${post.title}`}
+                >
                   <img
                     src={post.hero}
                     alt={post.title}
@@ -1145,8 +1167,9 @@ function Blogs() {
                     decoding="async"
                     style={{ transform: hoveredCard === index ? "scale(1.05)" : "scale(1)" }}
                   />
+
                   <motion.div
-                    className="absolute top-4 left-4 bg-rose-600 text-white px-3 py-1 rounded-full text-sm"
+                    className="absolute top-4 left-4 bg-rose-600 text-white px-3 py-1 rounded-full text-sm pointer-events-none"
                     initial={{ scale: 0 }}
                     {...(supportsIO
                       ? { whileInView: { scale: 1 }, viewport: { once: true } }
@@ -1156,7 +1179,10 @@ function Blogs() {
                   >
                     Editor’s Pick
                   </motion.div>
-                </div>
+
+                  {/* optional: clickable overlay to ensure full area is hit-target */}
+                  <span className="absolute inset-0" aria-hidden="true" />
+                </Link>
                 <div className="p-6">
                   <div className="flex items-center text-sm text-gray-500 mb-3">
                     <span>{formatDate(post.date)}</span>
