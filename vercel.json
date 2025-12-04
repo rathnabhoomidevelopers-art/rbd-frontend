@@ -2,6 +2,13 @@
   "rewrites": [
     { "source": "/api/(.*)", "destination": "https://rbd-backend.vercel.app/api/$1" },
     { "source": "/(.*)", "destination": "/" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "index, follow" }
+      ]
+    }
   ]
-  
 }
