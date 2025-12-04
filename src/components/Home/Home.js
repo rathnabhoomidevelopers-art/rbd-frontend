@@ -1,4 +1,5 @@
 import "./rbd.css";
+import { Helmet } from "react-helmet-async";
 import { useState, useEffect } from "react";
 import ScrollAnimateRight from "./ScrollAnimateRight";
 import { motion, useReducedMotion, AnimatePresence } from "framer-motion";
@@ -9,6 +10,7 @@ import RealEstate from "./RealEstate";
 import { Link } from "react-router-dom";
 import SetPageTitle from "./SetPageTitle";
 
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 const API_BASE = (() => {
 const pick = v => (typeof v === "string" && v.trim() ? v.trim().replace(/\/+$/g, "") : null);
 const fromVite = typeof import.meta !== "undefined" ? import.meta.env?.VITE_API_URL : undefined;
@@ -99,7 +101,6 @@ return (
 );
 }
 
-/* Testimonials data */
 const testimonials = [
 { id: 1, name: "Ravi Kumar", role: "First-Time Homebuyer", location: "Bengaluru", text: "Buying a home can be stressful, but the team made the entire process smooth and transparent. From property visits to paperwork, everything was handled with professionalism. I’m now happily settled in my dream home!", rating: 5 },
 { id: 2, name: "Neha Sharma", role: "Property Investor", location: "Bengaluru", text: "What impressed me most was the honesty and clarity. They explained every detail about the property and guided me through financing options as well. I felt very secure making this investment.", rating: 5 },
@@ -177,6 +178,11 @@ setIsSubmitting(false);
 
 return (
 <div className="App home-page">
+  <Helmet>
+    <title>Home | Rathna Bhoomi Developers</title>
+    <link rel="canonical" href={`${BASE_URL}/`} />
+  </Helmet>
+
  <SetPageTitle title="Home" />
 {/* Header */}
 <SiteHeader />

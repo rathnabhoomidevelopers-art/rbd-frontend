@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -16,6 +17,7 @@ import SetPageTitle from "./SetPageTitle";
 /* === URL HELPERS (dev-aware) === */
 
 /* Asset URL (subpath-safe, works with Vite base) */
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 const assetUrl = (pathFromPublic) => {
   const p = typeof pathFromPublic === "string" ? pathFromPublic : String(pathFromPublic ?? "");
   const baseRaw =
@@ -218,6 +220,10 @@ function ProjectHero({ onScrollToPlots }) {
 
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-amber-50 to-orange-50 overflow-hidden" style={{ marginTop: "-20px" }}>
+      <Helmet>
+        <title>Projects | Rathna Bhoomi Developers</title>
+        <link rel="canonical" href={`${BASE_URL}/ourprojects`} />
+      </Helmet>
       <div className="absolute inset-0 opacity-5" aria-hidden="true">
         <div className="absolute top-20 left-20 w-32 h-32 bg-amber-400 rounded-full blur-3xl" />
         <div className="absolute bottom-32 right-32 w-48 h-48 bg-orange-300 rounded-full blur-3xl" />
