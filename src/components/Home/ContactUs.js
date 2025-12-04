@@ -1,4 +1,5 @@
 import "./rbd.css";
+import { Helmet } from "react-helmet-async";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState, useRef, useMemo } from "react";
@@ -19,6 +20,7 @@ import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
 import SetPageTitle from "./SetPageTitle";
 
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 const joinUrl = (base, path) =>
   `${(base || "").replace(/\/+$/g, "")}${path.startsWith("/") ? "" : "/"}${path}`;
 
@@ -196,6 +198,11 @@ export default function ContactUs({
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Contact Us | Rathna Bhoomi Developers</title>
+        <link rel="canonical" href={`${BASE_URL}/contactus`} />
+      </Helmet>
+
       {!isTest && (
         <motion.div
           style={{

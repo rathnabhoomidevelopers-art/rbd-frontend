@@ -1,9 +1,16 @@
+import { Helmet } from "react-helmet-async";
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
+
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 
 export function TermsCondition(){
     return(
         <div>
+        <Helmet>
+            <title>Terms & Conditions | Rathna Bhoomi Developers</title>
+            <link rel="canonical" href={`${BASE_URL}/termsconditions`} />
+        </Helmet>
             <div>
                 <SiteHeader/>
             </div>

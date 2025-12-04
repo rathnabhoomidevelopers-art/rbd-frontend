@@ -1,4 +1,5 @@
 import "./rbd.css";
+import { Helmet } from "react-helmet-async";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "framer-motion";
@@ -11,6 +12,7 @@ import SiteFooter from "./SiteFooter";
 import AboutAccordion from "./AboutAccordion";
 import SetPageTitle from "./SetPageTitle";
 
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 const assetUrl = (pathFromPublic) =>
   (typeof import.meta !== "undefined" && import.meta.env?.BASE_URL)
     ? `${import.meta.env.BASE_URL.replace(/\/+$/, "")}/${pathFromPublic.replace(/^\/+/, "")}`
@@ -97,6 +99,11 @@ export default function AboutUs() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>About Us | Rathna Bhoomi Developers</title>
+        <link rel="canonical" href={`${BASE_URL}/aboutus`} />
+      </Helmet>
+
       <style>{`
         .parallax-bg { background-attachment: fixed; background-size: cover; background-position:center; }
         @media (max-width: 768px) { .parallax-bg { background-attachment: scroll; } }

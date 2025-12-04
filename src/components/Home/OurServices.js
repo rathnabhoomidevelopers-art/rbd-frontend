@@ -1,4 +1,5 @@
 import "./rbd.css";
+import { Helmet } from "react-helmet-async";
 import { useMemo } from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -7,6 +8,7 @@ import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
 import SetPageTitle from "./SetPageTitle";
 
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 const assetUrl = (pathFromPublic) =>
   (typeof import.meta !== "undefined" && import.meta.env?.BASE_URL)
     ? `${import.meta.env.BASE_URL.replace(/\/+$/, "")}/${pathFromPublic.replace(/^\/+/, "")}`
@@ -52,6 +54,10 @@ export function OurServices() {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Services | Rathna Bhoomi Developers</title>
+        <link rel="canonical" href={`${BASE_URL}/ourservices`} />
+      </Helmet>
       <SetPageTitle title="Services" />
       <SiteHeader />
 
@@ -60,10 +66,8 @@ export function OurServices() {
         <div className="sub-service2">What We Do</div>
       </div>
 
-      {/* Row 1: 1) Home Construction  2) Ready-to-Register Plots  3) Farm Land Sales */}
       <motion.div className="services" variants={variants.fadeUpContainer} {...ivProps}>
 
-        {/* 1) Home Construction */}
         <motion.div
           className="service-card card1"
           style={{ height: "100%", overflow: "hidden" }}

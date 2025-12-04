@@ -1,9 +1,16 @@
+import { Helmet } from "react-helmet-async";
 import SiteHeader from "./SiteHeader";
 import SiteFooter from "./SiteFooter";
+
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 
 export function PrivacyPolicy(){
     return(
         <div>
+         <Helmet>
+            <title>Privacy Policy | Rathna Bhopmi Developers</title>
+            <link rel="canonical" href={`${BASE_URL}/privacypolicy`} />
+         </Helmet>
             <div>
                 <SiteHeader/>
             </div>

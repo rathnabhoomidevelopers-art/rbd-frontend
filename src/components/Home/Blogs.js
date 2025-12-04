@@ -1,5 +1,6 @@
 // Blogs.js
 import "./rbd.css";
+import { Helmet } from "react-helmet-async";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState, useEffect, useMemo } from "react";
@@ -9,6 +10,7 @@ import SiteFooter from "./SiteFooter";
 import { Link } from "react-router-dom";
 import SetPageTitle from "./SetPageTitle";
 
+const BASE_URL = "https://www.rathnabhoomidevelopers.in";
 const assetUrl = (pathFromPublic) =>
   (typeof import.meta !== "undefined" && import.meta.env?.BASE_URL)
     ? `${import.meta.env.BASE_URL.replace(/\/+$/, "")}/${pathFromPublic.replace(/^\/+/, "")}`
@@ -1090,6 +1092,11 @@ function Blogs() {
 
   return (
     <div className="min-h-screen bg-stone-50">
+      <Helmet>
+          <title>Blogs | Rathna Bhoomi Developers</title>
+          <link rel="canonical" href={`${BASE_URL}/blogs`} />
+      </Helmet>
+
       <SetPageTitle title="Blogs" />
       <SiteHeader />
 
