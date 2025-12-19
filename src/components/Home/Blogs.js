@@ -1218,13 +1218,13 @@ function Blogs() {
 
       {/* Stickers */}
       <div className="sticker p-3">
-        <a href="https://wa.me/917483060728" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/917483060728" className="gtm-whatsapp-click" target="_blank" rel="noopener noreferrer">
           <div className="wp-sticker p-2 text-white rounded rounded-circle">
             <i className="bi bi-whatsapp"></i>
           </div>
         </a>
         <br />
-        <a href="tel:+917483060728">
+        <a href="tel:+917483060728" className="gtm-call-click">
           <div className="contact-sticker bg-secondary p-2 text-white rounded rounded-circle">
           <i className="bi bi-telephone"></i>
           </div>
