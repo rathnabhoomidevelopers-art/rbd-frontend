@@ -1039,13 +1039,14 @@ style={{ background: "linear-gradient(180deg, rgba(246,250,255,1) 0%, rgba(255,2
 
 {/* WhatsApp + Contact Stickers */}
 <div className="sticker p-3">
-<a href="https://wa.me/919538752960" target="_blank" rel="noopener noreferrer">
+<a href="https://wa.me/919538752960" target="_blank" className="gtm-whatsapp-click"
+ rel="noopener noreferrer">
   <div className="wp-sticker p-2 text-white rounded rounded-circle">
     <i className="bi bi-whatsapp"></i>
   </div>
 </a>
-<br />
-<a href="tel:+919538752960">
+<br /> 
+<a href="tel:+919538752960" className="gtm-call-click">
   <div className="contact-sticker bg-secondary p-2 text-white rounded rounded-circle">
     <i className="bi bi-telephone"></i>
   </div>
